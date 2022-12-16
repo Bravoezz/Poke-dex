@@ -1,0 +1,78 @@
+const Cardd = styled.div`
+  width: 290px;
+  height: 200px;
+  background-color: ${(props) => props.color};
+  text-align: center;
+  border: 10px solid #eee;
+  border-radius: 20px;
+  box-shadow: inset 5px 5px 10px #bbb, inset -5px -5px 10px #fff;
+  transition: 0.5s;
+
+  &:hover {
+    position: relative;
+    z-index: ${(props) => props.index};
+
+    #Content {
+      background-color: rgba(255 255 255 /0.5);
+      transform: translateY(0) scale(1.1);
+    }
+  }
+`;
+
+const Icon = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 230px;
+  height: 150px;
+  color: black;
+  font-size: 30px;
+  background-image: ${(props) => `url(${props.url})`};
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin: 20px auto;
+  margin-bottom: 2px;
+  padding: 5px;
+  transition: 1s ease all;
+  border-radius: 5%;
+  box-shadow: 8px 8px 10px #ddd, -8px -8px 10px #fff;
+  &:hover {
+    transition: 1s ease all;
+    transform: translateY(-30px);
+    background-color: transparent;
+    position: relative;
+  }
+`;
+
+const Content = styled.div`
+  color: #999;
+  background-color: #eee;
+  padding: 0px;
+  margin: 0px 20px;
+  border-radius: 8px;
+  box-shadow: 8px 8px 10px black, -8px -8px 10px rgba(0 0 0 0 /0.5);
+  transform: translateY(-80px) scale(0);
+  transition: all 0.5s;
+  h3 {
+    text-shadow: 2px 2px 0px #fff;
+  }
+`;
+
+
+  /* <Cardd color={colors[types[0].name]}>
+          {url ? (
+            <Icon id="icon" url={url}>
+              <span>{name}</span>
+            </Icon>
+          ) : (
+            <LoadingCard />
+          )}
+          <Content id="Content">
+            {types?.map((e, i) => (
+              <h3 key={i}>{e.name}</h3>
+            ))}
+            <H3 onClick={handleClick}>More</H3>
+          </Content>
+        </Cardd> */
+

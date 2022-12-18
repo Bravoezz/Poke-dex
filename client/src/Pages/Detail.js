@@ -11,7 +11,7 @@ const Detail = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     const getDetail = async () => {
-      const data = await fetch(`http://localhost:3001/pokemons/${id}`);
+      const data = await fetch(`https://back-brpokedex-production.up.railway.app/pokemons/${id}`);
       const [result] = await data.json();
       setDet(result);
     };

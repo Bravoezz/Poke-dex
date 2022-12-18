@@ -30,7 +30,7 @@ const Post = () => {
 
   const postPokemon = async () => {
     try {
-      await axios.post("http://localhost:3001/pokemons", poke);
+      await axios.post("https://back-brpokedex-production.up.railway.app/pokemons", poke);
     } catch (error) {
       console.log(error);
     }

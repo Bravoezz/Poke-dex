@@ -1,6 +1,6 @@
 export function getAllPokemons() {
   return function (dispatch) {
-    fetch("http://localhost:3001/pokemons")
+    fetch("https://back-brpokedex-production.up.railway.app/pokemons")
       .then((data) => data.json())
       .then((data) => dispatch({ type: "GET_ALL_POKEMONS", payload: data }));
   };
@@ -8,7 +8,7 @@ export function getAllPokemons() {
 
 export function getTypes() {
   return function (dispatch) {
-    fetch("http://localhost:3001/types")
+    fetch("https://back-brpokedex-production.up.railway.app/types")
       .then((data) => data.json())
       .then((data) => dispatch({ type: "GET_TYPES", payload: data }));
   };
@@ -30,7 +30,7 @@ export function filtered(info) {
 
 export function getPokemonsByName(name) {
   return function (dispatch) {
-    fetch(`http://localhost:3001/pokemons?name=${name}`)
+    fetch(`https://back-brpokedex-production.up.railway.app/pokemons?name=${name}`)
       .then((data) => data.json())
       .then((data) => {
         if (!data.error) {
@@ -47,7 +47,7 @@ export function getPokemonsByName(name) {
 export function deletePokemons(id) {
   return async (dispatch) => {
     try {
-      await fetch(`http://localhost:3001/delete/${id}`, { method: "DELETE" });
+      await fetch(`https://back-brpokedex-production.up.railway.app/delete/${id}`, { method: "DELETE" });
       dispatch({ type: "DELETE_POKEMONS", payload: id });
     } catch (error) {
       console.log(error);

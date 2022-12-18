@@ -28,7 +28,7 @@ const Update = () => {
   useEffect(() => {
     const getDetail = async () => {
       try {
-        const data = await fetch(`http://localhost:3001/pokemons/${id}`);
+        const data = await fetch(`https://back-brpokedex-production.up.railway.app/pokemons/${id}`);
         const [result] = await data.json();
         setDet(result);
       } catch (error) {
@@ -62,7 +62,7 @@ const Update = () => {
     };
     
     try {
-      await axios.put(`http://localhost:3001/pokemons/${id}`, pokeUp);
+      await axios.put(`https://back-brpokedex-production.up.railway.app/pokemons/${id}`, pokeUp);
     } catch (error) {
       console.log(error);
     }

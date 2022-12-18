@@ -6,16 +6,20 @@ const { Pokemon, Type, pokemon_type } = require("../db.js");
 
 const getPokemonsApi = async () => {
   try {
-    const { data } = await axios.get("https://pokeapi.co/api/v2/pokemon?offset=300&limit=70", { 
+    const { data } = await axios.get("https://pokeapi.co/api/v2/pokemon?offset=300&limit=70",{ 
       headers: { "Accept-Encoding": "gzip,deflate,compress" } 
   });
     const {
       data: { results: poke2 },
-    } = await axios.get(data.next);
+    } = await axios.get(data.next, { 
+      headers: { "Accept-Encoding": "gzip,deflate,compress" } 
+  });
     const arrayPoke = [...data.results, ...poke2];
     const finaly = Promise.all(
       arrayPoke.map(async (p) => {
-        const { data } = await axios.get(p.url);
+        const { data } = await axios.get(p.url, { 
+          headers: { "Accept-Encoding": "gzip,deflate,compress" } 
+      });
         return {
           name: data.name,
           id: Number(data.id),

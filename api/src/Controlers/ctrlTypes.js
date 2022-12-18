@@ -5,7 +5,9 @@ const getTypesApi = async () => {
   try {
     const {
       data: { results },
-    } = await axios.get("https://pokeapi.co/api/v2/type");
+    } = await axios.get("https://pokeapi.co/api/v2/type", { 
+      headers: { "Accept-Encoding": "gzip,deflate,compress" } 
+  });
     const res = results.map((e, id) => {
       return { id: id + 1, name: e.name };
     });

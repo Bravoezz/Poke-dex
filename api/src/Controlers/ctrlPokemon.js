@@ -6,7 +6,9 @@ const { Pokemon, Type, pokemon_type } = require("../db.js");
 
 const getPokemonsApi = async () => {
   try {
-    const { data } = await axios.get("https://pokeapi.co/api/v2/pokemon?offset=300&limit=70");
+    const { data } = await axios.get("https://pokeapi.co/api/v2/pokemon?offset=300&limit=70", { 
+      headers: { "Accept-Encoding": "gzip,deflate,compress" } 
+  });
     const {
       data: { results: poke2 },
     } = await axios.get(data.next);
@@ -44,7 +46,9 @@ const getDetailApiIdAndName = async (id) => {
   }
   try {
     const { data } = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon/${co ? co : id}`
+      `https://pokeapi.co/api/v2/pokemon/${co ? co : id}`, { 
+        headers: { "Accept-Encoding": "gzip,deflate,compress" } 
+    }
     );
     return {
       name: data.name,

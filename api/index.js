@@ -25,7 +25,7 @@ require('dotenv').config();
 const {PORT} = process.env;
 
 // Syncing all the models at once.
-conn.sync({ alter: true }).then(() => {
+conn.sync({ force: true }).then(() => {
   server.listen(PORT, async () => {
     await createTypes()
     console.log('%s listening at 3001',PORT); // eslint-disable-line no-console

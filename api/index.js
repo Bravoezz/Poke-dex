@@ -21,8 +21,7 @@ const { request } = require('./src/app.js');
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const {createTypes} = require("./src/Controlers/ctrlTypes.js")
-require('dotenv').config();
-const {PORT} = process.env;
+const PORT = process.env.PORT;
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {

@@ -21,12 +21,13 @@ const { request } = require('./src/app.js');
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const {createTypes} = require("./src/Controlers/ctrlTypes.js")
-
+require('dotenv').config();
+const {PORT} = process.env;
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(3001, async () => {
+  server.listen(PORT, async () => {
     await createTypes()
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+    console.log('%s listening at 3001',PORT); // eslint-disable-line no-console
   });
 });
